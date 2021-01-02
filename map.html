@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map | Himlinge</title>
+    <link rel="stylesheet" href="https://getbootstrap.com/docs/5.0/dist/css/bootstrap.min.css">
+    <style>
+        #map {
+            height: calc(100vh - 56px);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="collapse bg-dark" id="navbarHeader">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-md-7 py-4">
+                        <h4 class="text-white">About</h4>
+                        <p class="text-muted">Welcome to this "Local History Micro Aggregator", a conceptual cultural
+                            heritage aggregator surrounding the Swedish village Himlinge. This aggregator fetches its
+                            content from various institutions via the Swedish National Archives, Europeana, and
+                            Hembygd.se.</p>
+                    </div>
+                    <div class="col-sm-4 offset-md-1 py-4">
+                        <h4 class="text-white">Himlinge</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="index.html" class="text-white text-decoration-none">Images</a></li>
+                            <li><a href="map.html" class="text-white text-decoration-none">Map</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container">
+                <a href="#" class="navbar-brand d-flex align-items-center">
+                    <strong>Himlinge</strong>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
+                    aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="map">
+    </main>
+    <script src="https://getbootstrap.com/docs/5.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <style>
+        .leaflet-popup-content {
+            width: 100% !important;
+        }
+
+        .leaflet-popup-content img {
+            max-width: 200px;
+        }
+    </style>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+    <script>
+        const map = L.map('map').setView([59.07846196994698, 16.381173133850098], 15);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org/">OpenStreetMap</a> contributors.'
+        }).addTo(map);
+
+        L.marker([59.076546093321056, 16.39755606651306]).bindPopup('<img src="images/1.jpeg"><br><a class="text-reset" href="https://sokisamlingar.sormlandsmuseum.se/items/show/341230">Sörmlands museum</a>').addTo(map);
+        L.marker([59.07831449259611, 16.375822126865383]).bindPopup('<img src="images/3.jpeg"><br><a class="text-reset" href="https://sokisamlingar.sormlandsmuseum.se/items/show/341236">Sörmlands museum</a>').addTo(map);
+        L.marker([59.078729357172705, 16.374789476394653]).bindPopup('<img src="images/4.jpeg"><br><a class="text-reset" href="https://sokisamlingar.sormlandsmuseum.se/items/show/341233">Sörmlands museum</a>').addTo(map);
+        L.marker([59.076602606320655, 16.397539973258972]).bindPopup('<img src="images/5.jpeg"><br><a class="text-reset" href="https://sokisamlingar.sormlandsmuseum.se/items/show/341235">Sörmlands museum</a>').addTo(map);
+        L.marker([59.07691825038758, 16.371238231658936]).bindPopup('<img src="images/15.jpeg"><br><a class="text-reset" href="https://www.hembygd.se/floda-hembygdsforening/plats/10313/picture/2212299">Floda Hembygdsförening</a>').addTo(map);
+        L.marker([59.07566668392302, 16.372332572937008]).bindPopup('<img src="images/22.jpeg"><br><a class="text-reset" href="https://www.hembygd.se/floda-hembygdsforening/plats/10313/picture/2212300">Floda Hembygdsförening</a>').addTo(map);
+        L.marker([59.07214882100865, 16.381763219833374]).bindPopup('<img src="images/16.jpeg"><br><a class="text-reset" href="https://www.hembygd.se/floda-hembygdsforening/plats/10313/picture/2212303">Floda Hembygdsförening</a>').addTo(map);
+        L.marker([59.07928893400637, 16.373206973075867]).bindPopup('<img src="images/2.jpeg"><br><a class="text-reset" href="http://kmb.raa.se/cocoon/bild/show-image.html?id=16001000540365">Riksantikvarieämbetet</a>').addTo(map);
+    </script>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-46289504-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+
+</html>
